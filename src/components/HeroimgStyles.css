@@ -43,7 +43,7 @@
 }
 
 .hero .content p {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 200;
     /* text-transform: uppercase; */
 }
@@ -71,6 +71,6 @@
     }
 
     .hero .content p {
-        font-size: 1.4rem;
+        font-size: 1.1rem;
     }
 }

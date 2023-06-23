@@ -64,7 +64,7 @@ const Heroimage = () => {
       <div className="mask">
         <img className="into-img" src={IntroImg} alt="IntroImg" />
         <div className="content">
-          <p>Hi, I'm a <strong>{title}</strong></p>
+          <p>Hi,👋 I'm a <strong>{title}</strong></p>
           <h1>ANISH PANDEY</h1>
           <Link to="/" className="btn btn1">
             HIRE ME
