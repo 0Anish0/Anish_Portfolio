@@ -34,7 +34,7 @@ const Navbar = () => {
           <Link to="/project">Project</Link>
         </li>
         <li>
-          <Link to="https://docs.google.com/document/d/1XjGRuCmpTxLkQCgWLSLa2w-YgTezMjSc/edit?usp=sharing&ouid=113260609603803762059&rtpof=true&sd=true" target="_blank">Resume</Link>
+          <Link to="https://drive.google.com/file/d/1WG1s2yiIMZHpgRXSn2ZZNl1ZWqrdpt8T/view?usp=sharing" target="_blank">Resume</Link>
         </li>
         <li>
           <Link to="/about">About</Link>
