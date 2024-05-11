@@ -15,10 +15,10 @@
 }
 
 .project-card{
-    background: #1a1919;
+    background: #413838;
     padding: 1.2rem 1rem;
     max-width: 25rem;
-    box-shadow: 2px 4px 2px rgba(255, 0, 0, 0.9);
+    box-shadow: -3px -5px 6px rgba(47, 255, 0, 0.9);
 } 
 
 .project-card img{

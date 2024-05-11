@@ -20,44 +20,7 @@ const AboutContact = () => {
           learning journey, honing my skills and gaining valuable experience
           in web development.
         </p>
-        <h1>What am I doing?</h1>
-        <div className="cardManager">
-        <div class="card">
-        <img className="emogi" src={Frontend} alt="Frontend"></img>
-          <h2>Frontend Development</h2>
-          <p>
-          Skilled in creating responsive interfaces 
-          with HTML, CSS, JavaScript, and React.
-          </p>
-        </div>
-        <div class="card">
-        <img className="emogi" src={Backend} alt="Backend"></img>
-          <h2>Backend Development</h2>
-          <p>
-          Skilled in building scalable server-side applications 
-          with Node.js, Express.js, and MongoDB.
-          </p>
-        </div>
-        </div>
-        <div className="cardManager">
-        <div class="card">
-        <img className="emogi" src={Editing} alt="Editing"></img>
-          <h2>Video Editing</h2>
-          <p>Experienced in professional-level video editing.</p>
-        </div>
-        <div class="card">
-        <img className="emogi" src={Youtuber} alt="Youtuber"></img>
-          <h2>YouTube Creator</h2>
-          <p>
-          Interested in creating engineering-related content on YouTube.
-          </p>
-        </div>
-        </div>
-        <Link to="/contact">
-          <button className="btn">Contact</button>
-        </Link>
-      </div>
-      <div className="right">
+        <div className="right">
         <div className="img-container">
           <div className="img-stack top">
             <img src={Image} className="img"
@@ -65,6 +28,44 @@ const AboutContact = () => {
           </div>
         </div>
       </div>
+        <h1>What am I doing?</h1>
+        <div className="cardManager">
+          <div class="card">
+            <img className="emogi" src={Frontend} alt="Frontend"></img>
+            <h2>Frontend Development</h2>
+            <p>
+              Skilled in creating responsive interfaces
+              with HTML, CSS, JavaScript, and React.
+            </p>
+          </div>
+          <div class="card">
+            <img className="emogi" src={Backend} alt="Backend"></img>
+            <h2>Backend Development</h2>
+            <p>
+              Skilled in building scalable server-side applications
+              with Node.js, Express.js, and MongoDB.
+            </p>
+          </div>
+        </div>
+        <div className="cardManager">
+          <div class="card">
+            <img className="emogi" src={Editing} alt="Editing"></img>
+            <h2>Video Editing</h2>
+            <p>Experienced in professional-level video editing.</p>
+          </div>
+          <div class="card">
+            <img className="emogi" src={Youtuber} alt="Youtuber"></img>
+            <h2>YouTube Creator</h2>
+            <p>
+              Interested in creating engineering-related content on YouTube.
+            </p>
+          </div>
+        </div>
+        <Link to="/contact">
+          <button className="btn">Contact</button>
+        </Link>
+      </div>
+      
 
     </div>
   );

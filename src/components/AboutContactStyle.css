@@ -61,9 +61,7 @@
 }
 
 .right .img{
-    max-width: 77%;
-    margin-left: 11em;
-
+    max-width: 44%;
 }
 
 .right .top{
@@ -74,4 +72,14 @@
 
 .btn{
     margin-top: 1em;
+}
+
+@media screen and (max-width: 750px){
+    .cardManager{
+        display: flex;
+        margin: auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }    
 }
