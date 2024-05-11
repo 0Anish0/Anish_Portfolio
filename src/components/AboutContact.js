@@ -23,7 +23,7 @@ const AboutContact = () => {
         <h1>What am I doing?</h1>
         <div className="cardManager">
         <div class="card">
-        <img className="emogi" src={Frontend}></img>
+        <img className="emogi" src={Frontend} alt="Frontend"></img>
           <h2>Frontend Development</h2>
           <p>
           Skilled in creating responsive interfaces 
@@ -31,7 +31,7 @@ const AboutContact = () => {
           </p>
         </div>
         <div class="card">
-        <img className="emogi" src={Backend}></img>
+        <img className="emogi" src={Backend} alt="Backend"></img>
           <h2>Backend Development</h2>
           <p>
           Skilled in building scalable server-side applications 
@@ -41,12 +41,12 @@ const AboutContact = () => {
         </div>
         <div className="cardManager">
         <div class="card">
-        <img className="emogi" src={Editing}></img>
+        <img className="emogi" src={Editing} alt="Editing"></img>
           <h2>Video Editing</h2>
           <p>Experienced in professional-level video editing.</p>
         </div>
         <div class="card">
-        <img className="emogi" src={Youtuber}></img>
+        <img className="emogi" src={Youtuber} alt="Youtuber"></img>
           <h2>YouTube Creator</h2>
           <p>
           Interested in creating engineering-related content on YouTube.
