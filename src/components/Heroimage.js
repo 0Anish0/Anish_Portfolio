@@ -7,9 +7,9 @@ const Heroimage = () => {
   const [title, setTitle] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const typingSpeed = 100;
+  const typingSpeed = 50;
   const deletingSpeed = 50;
-  const pauseTime = 1500;
+  const pauseTime = 500;
   
   const texts = useMemo(
     () => [

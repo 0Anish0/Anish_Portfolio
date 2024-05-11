@@ -8,10 +8,6 @@ const Contact = () => {
   return (
     <div>
       <Navbar />
-      <Heroimage2
-        heading="CONTACT US"
-        text="Please drop your Message/Query bellow by filling your details in given form."
-      />
       <Form />
       <Footer />
     </div>

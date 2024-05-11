@@ -1,6 +1,7 @@
 .about{
     width: 100%;
-    margin: 3rem 0;
+    /* margin: 2rem 0; */
+    padding-top: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,11 +13,40 @@
     text-align: center;
     margin: auto;
     padding: 1rem;
-    max-width: 350px;
+    max-width: 600px;
 }
 
 .about .left p{
-    margin: 1.2rem 0;
+    margin: 0.5rem 0;
+}
+
+.about .left h1{
+    padding-top: 2rem;
+    color: #fff200;
+}
+.cardManager{
+    display: flex;
+}
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(100, 800, 100, 0.9);
+    background-color: #f9f9f9;
+}
+.card h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+.card p {
+    color: #666;
+}
+
+.emogi{
+    max-width: 50%;
 }
 
 .about .right{
@@ -31,12 +61,17 @@
 }
 
 .right .img{
-    max-width: 55%;
-    border: 1px solid #333;
+    max-width: 77%;
+    margin-left: 11em;
+
 }
 
 .right .top{
     grid-column: 1 / span 8;
     grid-row: 1;
     z-index: 6;
+}
+
+.btn{
+    margin-top: 1em;
 }

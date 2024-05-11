@@ -6,9 +6,18 @@ level {
 form {
     display: flex;
     flex-direction: column;
-    padding: 4rem 1rem;
+    padding: 9rem 1rem;
     margin: auto;
     max-width: 600px;
+}
+
+.map{
+    width: 100%;
+    height: 18rem;
+    margin: 18px 0;
+    border-radius: 20px;
+    opacity: 80%;
+    box-shadow: 3px 5px 2px rgba(244, 224, 12, 0.9);
 }
 
 form input,

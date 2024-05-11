@@ -8,7 +8,6 @@ const About = () => {
   return (
     <div>
       <Navbar />
-      <Heroimage2 heading="ABOUT" text="This page describe about me." />
       <AboutContact />
       <Footer />
     </div>
