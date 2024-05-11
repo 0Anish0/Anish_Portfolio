@@ -7,7 +7,7 @@ import Voting from "../assets/D-VotingSystem.jpg";
 const MyProject = () => {
   return (
     <div className="work-container">
-      <h1 className="project-heading">Some of my Work Sample</h1>
+      <h1 className="project-heading">Work Samples</h1>
       <div className="project-container">
         <div className="project-card">
           <img src={BlogHub} alt="project"></img>

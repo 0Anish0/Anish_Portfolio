@@ -48,12 +48,23 @@
     margin: 1rem;
 }
 
-@media screen and (max-width: 740px){
+@media screen and (max-width: 880px){
     .project-container{
         max-width: 66%;
         margin: auto;
         display: flex;
+        align-items: center;
         flex-direction: column;
         grid-template-columns: 1fr;
     }
+}
+
+@media screen and (max-width: 444px){
+    .project-card{
+        /* background: #413838; */
+        /* padding: 1.2rem 1rem; */
+        max-width: 18rem;
+        /* box-shadow: -3px -5px 6px rgba(47, 255, 0, 0.9); */
+    } 
+    
 }
