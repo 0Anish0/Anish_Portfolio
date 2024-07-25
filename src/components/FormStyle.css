@@ -1,7 +1,7 @@
 level {
     color: #fff;
     margin-bottom: 0.5rem;
-}
+} 
 
 form {
     display: flex;
@@ -9,6 +9,7 @@ form {
     padding: 9rem 1rem;
     margin: auto;
     max-width: 600px;
+    color: white;
 }
 
 .map{

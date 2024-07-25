@@ -66,7 +66,7 @@ const Heroimage = () => {
         <div className="content">
           <p>Hi,👋 I'm a <strong>{title}</strong></p>
           <h1>ANISH PANDEY</h1>
-          <Link to="/" className="btn btn1">
+          <Link to="/hire" className="btn btn1">
             HIRE ME
           </Link>
           <Link to="/contact" className="btn btn-light">
