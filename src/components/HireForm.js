@@ -51,11 +51,10 @@ const HiringForm = () => {
             return;
         }
         try {
-            const response = await axios.post("http://localhost:5000/api/hire", formData);
+            // const response = await axios.post("http://localhost:5000/api/hire", formData);
 
-            // const response = await axios.post("https://portfolio-backend-upb3.onrender.com/api/hire", formData);
+            const response = await axios.post("https://portfolio-backend-upb3.onrender.com/api/hire", formData);
             console.log(response.data);
-            // Clear form and errors after successful submission
             setFormData({
                 jobType: "",
                 requirement: "",
