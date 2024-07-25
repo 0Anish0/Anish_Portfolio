@@ -61,10 +61,7 @@
 
 @media screen and (max-width: 444px){
     .project-card{
-        /* background: #413838; */
-        /* padding: 1.2rem 1rem; */
         max-width: 18rem;
-        /* box-shadow: -3px -5px 6px rgba(47, 255, 0, 0.9); */
     } 
     
 }
