@@ -14,7 +14,7 @@ router.post("/hire", async (req, res) => {
         description, 
         companyName, 
         workMode, 
-        jobLocation,
+        officeLocation,
         contactType, 
         contactDetail 
     } = req.body;
@@ -31,7 +31,7 @@ router.post("/hire", async (req, res) => {
             <p><strong>Description:</strong> ${description}</p>
             <p><strong>Company Name:</strong> ${companyName}</p>
             <p><strong>Work Mode:</strong> ${workMode}</p>
-            <p><strong>Job Location:</strong> ${jobLocation || 'Not provided'}</p>
+            <p><strong>Job Location:</strong> ${officeLocation}  || Not Requred</p>
             <p><strong>Contact Type:</strong> ${contactType}</p>
             <p><strong>Contact Detail:</strong> ${contactDetail}</p>
         `

@@ -48,7 +48,7 @@ const HiringForm = () => {
         if (formData.role === "other" && !formData.otherRole) {
             newErrors.otherRole = 'This field is required';
         }
-        if (formData.workMode === "Office" && !formData.officeLocation) {
+        if ((formData.workMode === "Office" || formData.workMode === "Hybride") && !formData.officeLocation) {
             newErrors.officeLocation = 'This field is required';
         }
     
@@ -192,7 +192,7 @@ const HiringForm = () => {
                         {errors.workMode && <span className="error-message">{errors.workMode}</span>}
                     </label>
                 </div>
-                {formData.workMode === "Office" && (
+                {(formData.workMode === "Office" || formData.workMode === "Hybrid") && (
                     <div className={`form-field ${errors.officeLocation ? 'error' : ''}`}>
                         <label>
                             Company Location:

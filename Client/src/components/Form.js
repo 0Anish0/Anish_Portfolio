@@ -10,6 +10,8 @@ const Form = () => {
     message: '',
   });
 
+  const [errors, setErrors] = useState({});
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -18,8 +20,22 @@ const Form = () => {
     });
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name) newErrors.name = 'This field is required';
+    if (!formData.email) newErrors.email = 'This field is required';
+    if (!formData.subject) newErrors.subject = 'This field is required';
+    if (!formData.message) newErrors.message = 'This field is required';
+    return newErrors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const newErrors = validateForm();
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
 
     try {
       const response = await fetch(`${config.BASE_URL}/send-email`, {
@@ -38,6 +54,7 @@ const Form = () => {
           subject: '',
           message: '',
         });
+        setErrors({});
       } else {
         alert('Failed to send message.');
       }
@@ -60,13 +77,40 @@ const Form = () => {
         </iframe>
 
         <label>Your Name</label>
-        <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={formData.name}
+          onChange={handleChange}
+          className={errors.name ? 'error' : ''}
+          required
+        />
+        {errors.name && <span className="error-message">{errors.name}</span>}
 
         <label>Email</label>
-        <input type="email" placeholder="Email" name="email" value={formData.email} onChange={handleChange} required />
+        <input
+          type="email"
+          placeholder="Email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          className={errors.email ? 'error' : ''}
+          required
+        />
+        {errors.email && <span className="error-message">{errors.email}</span>}
 
         <label>Subject</label>
-        <input type="text" placeholder="Subject" name="subject" value={formData.subject} onChange={handleChange} required />
+        <input
+          type="text"
+          placeholder="Subject"
+          name="subject"
+          value={formData.subject}
+          onChange={handleChange}
+          className={errors.subject ? 'error' : ''}
+          required
+        />
+        {errors.subject && <span className="error-message">{errors.subject}</span>}
 
         <label>Message</label>
         <textarea
@@ -75,8 +119,10 @@ const Form = () => {
           placeholder="Type your message here"
           value={formData.message}
           onChange={handleChange}
+          className={errors.message ? 'error' : ''}
           required
         ></textarea>
+        {errors.message && <span className="error-message">{errors.message}</span>}
 
         <button className="btn" type="submit">Submit</button>
       </form>
