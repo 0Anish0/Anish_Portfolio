@@ -59,38 +59,39 @@ const HiringForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form submitted"); 
-
+        console.log("Form submitted");
+    
         const formErrors = validateForm();
         if (Object.keys(formErrors).length > 0) {
             setErrors(formErrors);
             console.log("Form errors:", formErrors);
             return;
         }
-
+    
         try {
             const response = await axios.post(`${config.BASE_URL}/hire`, formData);
-            setFormData({
-                jobType: "",
-                requirement: "",
-                otherRequirement: "",
-                role: "",
-                otherRole: "",
-                description: "",
-                companyName: "",
-                workMode: "",
-                officeLocation: "",
-                contactType: "",
-                contactDetail: "",
-            });
-            setErrors({});
-
-            alert("Form submitted successfully!");
+            if (response.status >= 200 && response.status < 300) {
+                alert('Message sent successfully!');
+                setFormData({
+                    jobType: "",
+                    requirement: "",
+                    otherRequirement: "",
+                    role: "",
+                    otherRole: "",
+                    description: "",
+                    companyName: "",
+                    workMode: "",
+                    officeLocation: "",
+                    contactType: "",
+                    contactDetail: "",
+                });
+                setErrors({});
+            }
         } catch (error) {
             console.error("There was an error submitting the form:", error.response ? error.response.data : error.message);
         }
     };
-
+    
     return (
         <div className="form-container">
             <form onSubmit={handleSubmit}>
