@@ -31,17 +31,17 @@ const HiringForm = () => {
     const validateForm = () => {
         const newErrors = {};
         console.log("Validating form data:", formData);
-    
+
         Object.keys(formData).forEach(key => {
             if (key === 'officeLocation' && formData.workMode !== 'Office') {
                 return;
             }
-            
+
             if (!formData[key] && key !== 'otherRequirement' && key !== 'otherRole') {
                 newErrors[key] = 'This field is required';
             }
         });
-    
+
         if (formData.requirement === "other" && !formData.otherRequirement) {
             newErrors.otherRequirement = 'This field is required';
         }
@@ -51,11 +51,11 @@ const HiringForm = () => {
         if ((formData.workMode === "Office" || formData.workMode === "Hybride") && !formData.officeLocation) {
             newErrors.officeLocation = 'This field is required';
         }
-    
+
         console.log("Validation errors:", newErrors);
         return newErrors;
     };
-    
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
