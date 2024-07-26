@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './FormStyle.css';
+import config from "../config";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -19,9 +20,9 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
-      const response = await fetch('https://portfolio-backend-upb3.onrender.com/api/send-email', {
+      const response = await fetch(`${config.BASE_URL}/send-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,13 +61,13 @@ const Form = () => {
 
         <label>Your Name</label>
         <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
-        
+
         <label>Email</label>
         <input type="email" placeholder="Email" name="email" value={formData.email} onChange={handleChange} required />
-        
+
         <label>Subject</label>
         <input type="text" placeholder="Subject" name="subject" value={formData.subject} onChange={handleChange} required />
-        
+
         <label>Message</label>
         <textarea
           name="message"
@@ -76,7 +77,7 @@ const Form = () => {
           onChange={handleChange}
           required
         ></textarea>
-        
+
         <button className="btn" type="submit">Submit</button>
       </form>
     </div>

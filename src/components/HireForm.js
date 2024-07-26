@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./HireFormStyles.css";
+import config from "../config";
 
 const HiringForm = () => {
     const [formData, setFormData] = useState({
@@ -12,7 +13,7 @@ const HiringForm = () => {
         description: "",
         companyName: "",
         workMode: "",
-        jobLocation: "", // Corrected field name
+        officeLocation: "",
         contactType: "",
         contactDetail: "",
     });
@@ -29,32 +30,46 @@ const HiringForm = () => {
 
     const validateForm = () => {
         const newErrors = {};
+        console.log("Validating form data:", formData);
+    
         Object.keys(formData).forEach(key => {
+            if (key === 'officeLocation' && formData.workMode !== 'Office') {
+                return;
+            }
+            
             if (!formData[key] && key !== 'otherRequirement' && key !== 'otherRole') {
                 newErrors[key] = 'This field is required';
             }
         });
+    
         if (formData.requirement === "other" && !formData.otherRequirement) {
             newErrors.otherRequirement = 'This field is required';
         }
         if (formData.role === "other" && !formData.otherRole) {
             newErrors.otherRole = 'This field is required';
         }
+        if (formData.workMode === "Office" && !formData.officeLocation) {
+            newErrors.officeLocation = 'This field is required';
+        }
+    
+        console.log("Validation errors:", newErrors);
         return newErrors;
     };
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("Form submitted"); 
+
         const formErrors = validateForm();
         if (Object.keys(formErrors).length > 0) {
             setErrors(formErrors);
+            console.log("Form errors:", formErrors);
             return;
         }
-        try {
-            // const response = await axios.post("http://localhost:5000/api/hire", formData);
 
-            const response = await axios.post("https://portfolio-backend-upb3.onrender.com/api/hire", formData);
-            console.log(response.data);
+        try {
+            const response = await axios.post(`${config.BASE_URL}/hire`, formData);
             setFormData({
                 jobType: "",
                 requirement: "",
@@ -64,13 +79,15 @@ const HiringForm = () => {
                 description: "",
                 companyName: "",
                 workMode: "",
-                jobLocation: "",
+                officeLocation: "",
                 contactType: "",
                 contactDetail: "",
             });
             setErrors({});
+
+            alert("Form submitted successfully!");
         } catch (error) {
-            console.error("There was an error submitting the form:", error);
+            console.error("There was an error submitting the form:", error.response ? error.response.data : error.message);
         }
     };
 
@@ -176,17 +193,17 @@ const HiringForm = () => {
                     </label>
                 </div>
                 {formData.workMode === "Office" && (
-                    <div className={`form-field ${errors.jobLocation ? 'error' : ''}`}>
+                    <div className={`form-field ${errors.officeLocation ? 'error' : ''}`}>
                         <label>
                             Company Location:
                             <input
-                                placeholder="Job Location"
+                                placeholder="Office Location"
                                 type="text"
-                                name="jobLocation"
-                                value={formData.jobLocation}
+                                name="officeLocation"
+                                value={formData.officeLocation}
                                 onChange={handleChange}
                             />
-                            {errors.jobLocation && <span className="error-message">{errors.jobLocation}</span>}
+                            {errors.officeLocation && <span className="error-message">{errors.officeLocation}</span>}
                         </label>
                     </div>
                 )}
