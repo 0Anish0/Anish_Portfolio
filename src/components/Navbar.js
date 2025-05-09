@@ -1,56 +1,109 @@
-import "./NavbarStyle.css";
-import React, { useState } from "react";
+import "./styles/NavbarStyle.css";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logo from "../assets/logo.png";
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
-  const [click, setClick] = useState(false);
-  const handleclick = () => setClick(!click);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
-  const [color, setColor] = useState(false);
-  const changeColor = () => {
-    if (window.scrollY >= 100) {
-      setColor(true);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+      
+      // Update active section based on scroll position
+      const sections = ['home', 'about', 'projects', 'contact'];
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close menu on route change (optional, for better UX)
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
     } else {
-      setColor(false);
+      document.body.style.overflow = '';
     }
-  };
+    return () => { document.body.style.overflow = ''; };
+  }, [isMenuOpen]);
 
-  window.addEventListener("scroll", changeColor);
+  const navLinks = [
+    { path: '/', label: 'Home', section: 'home' },
+    { path: '/about', label: 'About', section: 'about' },
+    { path: '/project', label: 'Projects', section: 'projects' },
+    { path: '/contact', label: 'Contact', section: 'contact' },
+  ];
 
   return (
-    <div className={color ? "header header-bg" : "header"}>
-      <Link to="/">
-        <img className="LOgo" src={logo} alt="logo" />
-        <h1>Anish Pandey</h1>
-      </Link>
+    <motion.nav
+      className={`navbar ${isScrolled ? 'scrolled' : ''}`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="nav-container">
+        <Link to="/" className="logo">
+          <span className="text-gradient">AP</span>
+        </Link>
 
-      <ul className={click ? "nav-menu active" : "nav-menu"}>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/project">Project</Link>
-        </li>
-        <li>
-          <Link to="https://drive.google.com/file/d/1WG1s2yiIMZHpgRXSn2ZZNl1ZWqrdpt8T/view?usp=sharing" target="_blank">Resume</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact</Link>
-        </li>
-      </ul>
-      <div className="hamburger" onClick={handleclick}>
-        {click ? (
-          <FaTimes size={20} style={{ color: "#fff" }} />
-        ) : (
-          <FaBars size={20} style={{ color: "#fff" }} />
-        )}
+        <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className={`nav-link ${activeSection === link.section ? 'active' : ''}`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {link.label}
+              <span className="nav-link-underline"></span>
+            </Link>
+          ))}
+        </div>
+
+        <div className="nav-actions">
+          <button
+            className="theme-toggle"
+            onClick={() => {
+              const currentTheme = document.documentElement.getAttribute('data-theme');
+              document.documentElement.setAttribute(
+                'data-theme',
+                currentTheme === 'dark' ? 'light' : 'dark'
+              );
+            }}
+            aria-label="Toggle dark mode"
+          >
+            <span className="theme-icon">🌙</span>
+          </button>
+
+          <button
+            className={`hamburger ${isMenuOpen ? 'active' : ''}`}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Open menu"
+          >
+            <FaBars style={{ display: isMenuOpen ? 'none' : 'block' }} />
+            <FaTimes style={{ display: isMenuOpen ? 'block' : 'none' }} />
+          </button>
+        </div>
       </div>
-    </div>
+      {/* Optional: Backdrop overlay for mobile menu */}
+      {isMenuOpen && <div className="nav-backdrop" onClick={() => setIsMenuOpen(false)}></div>}
+    </motion.nav>
   );
 };
 

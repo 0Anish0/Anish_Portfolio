@@ -5,7 +5,7 @@ import AboutContact from "../components/AboutContact";
 
 const About = () => {
   return (
-    <div>
+    <div className="about-container">
       <Navbar />
       <AboutContact />
       <Footer />

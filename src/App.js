@@ -1,6 +1,5 @@
 import React from "react";
 import "./index.css";
-import HireMe from "./routes/HireMe"
 import Home from "./routes/Home";
 import About from "./routes/About";
 import Project from "./routes/Project";
@@ -13,7 +12,6 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/hire" element={<HireMe />} />
         <Route path="/Project" element={<Project />} />
         <Route path="/About" element={<About />} />
         <Route path="/Contact" element={<Contact />} />

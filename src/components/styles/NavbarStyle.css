@@ -1,0 +1,225 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: var(--space-4) 0;
+    transition: all var(--transition-normal);
+    background-color: transparent;
+}
+
+.navbar.scrolled {
+    background-color: var(--background-color);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-3) 0;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.logo {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--space-6);
+    align-items: center;
+}
+
+.nav-link {
+    position: relative;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--space-2) 0;
+    transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transition: width var(--transition-fast);
+}
+
+.nav-link:hover .nav-link-underline,
+.nav-link.active .nav-link-underline {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-2);
+    border-radius: var(--radius-full);
+    transition: background-color var(--transition-fast);
+}
+
+.theme-toggle:hover {
+    background-color: var(--hover-color);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger svg {
+    color: var(--primary-color);
+    width: 2rem;
+    height: 2rem;
+    transition: color 0.2s;
+}
+
+.hamburger.active svg {
+    color: var(--primary-color);
+}
+
+.close-menu {
+    display: block;
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    cursor: pointer;
+    z-index: 1102;
+    transition: background 0.2s, color 0.2s;
+    padding: 0.2em 0.4em;
+    border-radius: 8px;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-menu:hover {
+    background: none;
+    color: var(--primary-color);
+}
+
+.hamburger:hover, .hamburger.active:hover {
+    background: none;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        min-height: 100vh;
+        padding-top: 4.5rem;
+        left: 0;
+        width: 100%;
+        background-color: var(--background-color);
+        flex-direction: column;
+        padding: var(--space-4);
+        gap: var(--space-4);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all var(--transition-normal);
+        box-shadow: var(--shadow-lg);
+        z-index: 1001;
+        display: flex;
+        align-items: flex-start;
+        border-bottom: 2px solid var(--primary-color);
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .close-menu {
+        display: block;
+        position: absolute;
+        top: 1.2rem;
+        right: 1.2rem;
+        background: var(--card-bg, #fff);
+        border: none;
+        color: var(--primary-color);
+        font-size: 2.2rem;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        cursor: pointer;
+        z-index: 1102;
+        transition: background 0.2s, color 0.2s;
+    }
+
+    .close-menu:hover {
+        background: var(--primary-color);
+        color: #fff;
+    }
+
+    .nav-link {
+        font-size: 1.3rem;
+        padding: 1rem 0;
+        width: 100%;
+        color: var(--text-color);
+        text-align: left;
+    }
+
+    .nav-link.active, .nav-link:hover {
+        color: var(--primary-color);
+    }
+
+    .nav-actions {
+        z-index: 1100;
+    }
+
+    .nav-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.35);
+        backdrop-filter: blur(2px);
+        z-index: 1000;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
