@@ -1,6 +1,6 @@
 .project-heading{
     text-align: center;
-    padding: 9rem 0em 2rem 0;
+    padding: 2rem 0em 2rem 0;
 }
 
 .project-container{
@@ -68,7 +68,8 @@
 
 .projects-section {
   position: relative;
-  padding: 6rem 0;
+  padding: 2rem 0;
+  padding-top: 120px; /* Space for navbar + content spacing */
   background-color: var(--background-color);
   overflow: hidden;
 }
@@ -338,7 +339,8 @@
 
 @media (max-width: 768px) {
   .projects-section {
-    padding: 4rem 0;
+    padding: 1.5rem 0;
+    padding-top: 90px; /* Mobile navbar spacing */
   }
   
   .section-title {
@@ -445,7 +447,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
 }
 
 .showcase-title::after {

@@ -6,7 +6,6 @@ import { FaGithub, FaExternalLinkAlt, FaCode, FaServer, FaLayerGroup, FaStar } f
 const MyProject = () => {
   const [activeProject, setActiveProject] = useState(null);
   const [category, setCategory] = useState('all');
-  const [hoverDetails, setHoverDetails] = useState(null);
   const containerRef = useRef(null);
   const [viewportHeight, setViewportHeight] = useState(0);
 
@@ -193,8 +192,6 @@ const MyProject = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   style={parallaxProps}
-                  onHoverStart={() => setHoverDetails(project.id)}
-                  onHoverEnd={() => setHoverDetails(null)}
                 >
                   {project.featured && (
                     <div className="featured-badge">

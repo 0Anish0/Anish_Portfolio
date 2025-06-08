@@ -1,11 +1,11 @@
 .about{
     width: 100%;
-    padding-top: 5rem;
+    padding-top: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    height: 100%;
+    height: auto;
 }
 
 .about .left{
@@ -103,7 +103,8 @@
 }
 
 .about-section {
-  padding: var(--space-12) 0;
+  padding: var(--space-6) 0;
+  padding-top: 90px; /* Space for navbar + content spacing */
   background: linear-gradient(-45deg, 
     var(--background-color),
     var(--card-bg),
@@ -114,7 +115,7 @@
   color: var(--text-color);
   position: relative; 
   overflow: hidden;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .about-section::before {
@@ -423,6 +424,10 @@
 }
 
 @media (max-width: 768px) {
+  .about-section {
+    padding-top: 60px; /* Mobile navbar spacing */
+  }
+
   .about-content {
     grid-template-columns: 1fr;
   }
