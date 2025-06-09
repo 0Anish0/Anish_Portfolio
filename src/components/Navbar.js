@@ -3,29 +3,16 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaBars, FaTimes, FaSun, FaMoon } from "react-icons/fa";
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from "../contexts/ThemeContext";
+import { Button } from "./ui/Button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/Tooltip";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    // Check for saved theme preference or use system preference
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    let initialTheme;
-    if (savedTheme) {
-      initialTheme = savedTheme;
-    } else {
-      initialTheme = systemPrefersDark ? 'dark' : 'light';
-    }
-    
-    setIsDarkMode(initialTheme === 'dark');
-    document.documentElement.setAttribute('data-theme', initialTheme);
-  }, []);
+  const { toggleTheme, isDark } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,15 +55,6 @@ const Navbar = () => {
       document.body.style.overflow = ''; 
     };
   }, [isMenuOpen, isMobile]);
-
-  const toggleTheme = () => {
-    const newTheme = isDarkMode ? 'light' : 'dark';
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.setAttribute('data-theme', newTheme);
-    
-    // Store preference in localStorage
-    localStorage.setItem('theme', newTheme);
-  };
 
   const navLinks = [
     { path: '/', label: 'Home' },
@@ -196,72 +174,57 @@ const Navbar = () => {
         </div>
 
         <div className="nav-actions">
-          <motion.button
-            className="theme-toggle"
-            onClick={toggleTheme}
-            aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-            whileHover={{ 
-              scale: 1.1,
-              boxShadow: "0 4px 12px rgba(0,0,0,0.15)"
-            }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <motion.div
-              className="theme-icon"
-              initial={false}
-              animate={{ 
-                rotate: isDarkMode ? 180 : 0,
-                scale: isDarkMode ? 1.1 : 1
-              }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-            >
-              <AnimatePresence mode="wait">
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="theme-toggle"
+                onClick={toggleTheme}
+                aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+              >
                 <motion.div
-                  key={isDarkMode ? 'sun' : 'moon'}
-                  initial={{ opacity: 0, rotate: -180 }}
-                  animate={{ opacity: 1, rotate: 0 }}
-                  exit={{ opacity: 0, rotate: 180 }}
+                  className="theme-icon"
+                  initial={false}
+                  animate={{ rotate: isDark ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {isDarkMode ? <FaSun /> : <FaMoon />}
+                  {isDark ? <FaSun /> : <FaMoon />}
                 </motion.div>
-              </AnimatePresence>
-            </motion.div>
-          </motion.button>
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Toggle {isDark ? 'light' : 'dark'} mode</p>
+            </TooltipContent>
+          </Tooltip>
 
-          <motion.button
+          <Button
+            variant="ghost"
+            size="icon"
             className={`hamburger ${isMenuOpen ? 'active' : ''}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+            aria-expanded={isMenuOpen}
           >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={isMenuOpen ? 'close' : 'menu'}
-                initial={{ opacity: 0, rotate: -90 }}
-                animate={{ opacity: 1, rotate: 0 }}
-                exit={{ opacity: 0, rotate: 90 }}
-                transition={{ duration: 0.2 }}
-              >
-                {isMenuOpen ? <FaTimes /> : <FaBars />}
-              </motion.div>
-            </AnimatePresence>
-          </motion.button>
+            <motion.div
+              animate={{ rotate: isMenuOpen ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {isMenuOpen ? <FaTimes /> : <FaBars />}
+            </motion.div>
+          </Button>
         </div>
       </div>
-      
+
       {/* Mobile menu backdrop */}
       <AnimatePresence>
         {isMenuOpen && isMobile && (
-          <motion.div 
-            className="nav-backdrop" 
-            onClick={() => setIsMenuOpen(false)}
+          <motion.div
+            className="nav-backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            onClick={() => setIsMenuOpen(false)}
           />
         )}
       </AnimatePresence>

@@ -3,6 +3,7 @@
 /server/node_modules
 /.pnp
 .pnp.js
+/Portfolio_Backend
 
 # Environment files
 .env

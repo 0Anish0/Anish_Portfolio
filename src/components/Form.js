@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Input } from './ui/Input';
+import { Textarea } from './ui/Textarea';
+import { Button } from './ui/Button';
 import './styles/FormStyle.css';
 
 const Contact = () => {
@@ -110,7 +113,7 @@ const Contact = () => {
             onSubmit={handleSubmit}
           >
             <div className="form-group">
-              <input
+              <Input
                 type="text"
                 name="name"
                 value={formData.name}
@@ -123,7 +126,7 @@ const Contact = () => {
             </div>
 
             <div className="form-group">
-              <input
+              <Input
                 type="email"
                 name="email"
                 value={formData.email}
@@ -136,7 +139,7 @@ const Contact = () => {
             </div>
 
             <div className="form-group">
-              <input
+              <Input
                 type="text"
                 name="subject"
                 value={formData.subject}
@@ -149,7 +152,7 @@ const Contact = () => {
             </div>
 
             <div className="form-group">
-              <textarea
+              <Textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
@@ -157,19 +160,23 @@ const Contact = () => {
                 className="form-input"
                 rows="5"
                 placeholder=" "
-              ></textarea>
+              />
               <label className="form-label">Message</label>
             </div>
 
-            <motion.button
+            <Button
               type="submit"
               className={`submit-button ${formState.isSubmitting ? 'submitting' : ''}`}
               disabled={formState.isSubmitting}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              asChild
             >
-              {formState.isSubmitting ? 'Sending...' : 'Launch Message'}
-            </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {formState.isSubmitting ? 'Sending...' : 'Launch Message'}
+              </motion.button>
+            </Button>
 
             {formState.isSubmitted && (
               <motion.div

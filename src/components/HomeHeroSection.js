@@ -129,7 +129,7 @@ const HomeHeroSection = () => {
   return (
     <>
       <motion.div 
-        className="section-layout hero-container"
+        className="section-layout hero-container main-hero"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -274,7 +274,7 @@ const HomeHeroSection = () => {
 
       {/* TechShowcase Section */}
       <motion.section 
-        className="section-layout tech-showcase"
+        className="section-layout hero-container"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
@@ -339,12 +339,13 @@ const HomeHeroSection = () => {
 
       {/* Live Coding Section */}
       <motion.section 
-        className="section-layout live-coding"
+        className="section-layout hero-container"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={containerVariants}
       >
+        <ParticlesBackground id="coding-particles" className="particles-canvas" />
         <div className="section-content">
           <motion.div 
             className="live-coding-header"

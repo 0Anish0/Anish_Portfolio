@@ -104,7 +104,7 @@
 
 .hero-container {
   position: relative;
-  min-height: auto;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,6 +112,11 @@
   background: var(--background-color);
   padding: var(--space-8);
   padding-top: 130px; /* Extra space for navbar + content spacing */
+}
+
+.main-hero {
+  padding-bottom: calc(var(--space-8) + 100px); /* Extra bottom padding to prevent overlap */
+  z-index: 10; /* Higher z-index for main hero */
 }
 
 .particles-canvas {
@@ -298,26 +303,9 @@
 }
 
 /* Tech Showcase Enhanced */
-.tech-showcase {
-  background: linear-gradient(135deg, var(--background-color) 0%, var(--card-bg) 100%);
-  position: relative;
-}
-
-.tech-showcase::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 20% 80%, rgba(var(--primary-color-rgb), 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(var(--secondary-color-rgb), 0.1) 0%, transparent 50%);
-  pointer-events: none;
-}
-
 .tech-showcase-content {
   position: relative;
-  z-index: 2;
+  z-index: 5; /* Lower than main hero but higher than particles */
 }
 
 .tech-cube {
@@ -412,11 +400,6 @@
 }
 
 /* Live Coding Enhanced */
-.live-coding {
-  background: var(--background-color);
-  position: relative;
-}
-
 .live-coding-row {
   display: flex;
   align-items: center;
@@ -551,12 +534,8 @@
     padding: 100px var(--space-4) var(--space-6);
   }
 
-  .tech-showcase {
-    padding: var(--space-8) var(--space-4);
-  }
-
-  .live-coding {
-    padding: var(--space-6) var(--space-4);
+  .main-hero {
+    padding-bottom: calc(var(--space-6) + 60px); /* Reduced extra padding on mobile */
   }
 
   .section-title {
@@ -683,6 +662,10 @@
 
   .hero-container {
     padding: 100px var(--space-3) var(--space-4);
+  }
+
+  .main-hero {
+    padding-bottom: calc(var(--space-4) + 40px); /* Further reduced on smaller screens */
   }
 
   .hero-title {
