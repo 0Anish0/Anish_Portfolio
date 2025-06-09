@@ -98,7 +98,7 @@ const Chatbot = () => {
             <div className="chatbot-header">
               <span style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <ChatbotLogo size={28} />
-                <span style={{ fontWeight: 700, fontSize: 18, letterSpacing: 0.5 }}>Gemini Chat</span>
+                <span style={{ fontWeight: 700, fontSize: 18, letterSpacing: 0.5 }}>AnishVerse</span>
               </span>
               <button
                 onClick={() => setOpen(false)}
