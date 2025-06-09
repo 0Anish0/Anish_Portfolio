@@ -9,16 +9,19 @@
   overflow: hidden;
 }
 
-.contact-section::before {
-  content: '';
+.particles-canvas {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(var(--primary-color), 0.1) 0%, transparent 70%);
-  opacity: 0.3;
+  z-index: 0;
   pointer-events: none;
+  opacity: 0.6;
+}
+
+[data-theme="dark"] .particles-canvas {
+  opacity: 1;
 }
 
 .container {

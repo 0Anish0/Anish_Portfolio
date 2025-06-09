@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './styles/MyProjectStyle.css';
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaCode, FaServer, FaLayerGroup, FaStar } from 'react-icons/fa';
+import ParticlesBackground from './ParticlesBackground';
 
 const MyProject = () => {
   const [activeProject, setActiveProject] = useState(null);
@@ -132,6 +133,7 @@ const MyProject = () => {
       ref={containerRef}
       onMouseMove={handleMouseMove}
     >
+      <ParticlesBackground id="projects-particles" className="particles-canvas" />
       <div className="showcase-blob"></div>
       <div className="showcase-blob-2"></div>
       

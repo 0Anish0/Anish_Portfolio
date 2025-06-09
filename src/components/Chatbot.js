@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from '../contexts/ThemeContext';
 import { FaPaperPlane, FaTimes, FaCommentDots } from 'react-icons/fa';
 import '../components/styles/ChatbotStyles.css';
 
@@ -25,7 +24,6 @@ const ChatbotLogo = ({ size = 28 }) => (
 const USER_AVATAR = <FaCommentDots size={24} />;
 
 const Chatbot = () => {
-  const { theme } = useTheme();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
     { role: 'bot', content: "Hi! I'm your AI assistant. How can I help you today?" }

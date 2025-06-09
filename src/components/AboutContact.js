@@ -1,6 +1,7 @@
 import "./styles/AboutContactStyle.css";
 import React from "react";
 import { motion } from 'framer-motion';
+import ParticlesBackground from './ParticlesBackground';
 
 const AboutContact = () => {
   const skills = [
@@ -33,6 +34,7 @@ const AboutContact = () => {
 
   return (
     <section className="about-section" id="about">
+      <ParticlesBackground id="about-particles" className="particles-canvas" />
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

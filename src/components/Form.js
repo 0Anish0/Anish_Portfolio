@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Input } from './ui/Input';
 import { Textarea } from './ui/Textarea';
 import { Button } from './ui/Button';
+import ParticlesBackground from './ParticlesBackground';
 import './styles/FormStyle.css';
 
 const Contact = () => {
@@ -65,6 +66,7 @@ const Contact = () => {
 
   return (
     <section className="contact-section" id="contact">
+      <ParticlesBackground id="contact-particles" className="particles-canvas" />
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
