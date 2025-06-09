@@ -6,6 +6,7 @@ import Project from "./routes/Project";
 import Contact from "./routes/Contact";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { TooltipProvider } from "./components/ui/Tooltip";
+import Chatbot from "./components/Chatbot";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/Contact" element={<Contact />} />
         </Routes>
+        <Chatbot />
       </TooltipProvider>
     </ThemeProvider>
   );
