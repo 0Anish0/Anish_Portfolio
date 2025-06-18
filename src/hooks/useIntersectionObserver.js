@@ -9,6 +9,7 @@ export const useIntersectionObserver = (options = {}) => {
     const element = elementRef.current;
     if (!element) return;
 
+    //testing
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsIntersecting(entry.isIntersecting);
