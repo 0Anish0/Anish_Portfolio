@@ -3,9 +3,9 @@ const { fontFamily } = require('tailwindcss/defaultTheme')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{js,jsx,ts,tsx}",
-    "./public/index.html",
-    "./public/**/*.html"
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: 'class',
   theme: {
@@ -106,4 +106,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+} 

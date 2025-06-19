@@ -18,10 +18,32 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/pages/*": ["./src/pages/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/contexts/*": ["./src/contexts/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/assets/*": ["./src/assets/*"]
+    }
   },
   "include": [
-    "src",
-    "src/types"
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
   ]
-} 
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { motion, AnimatePresence, HTMLMotionProps } from 'framer-motion';
 import { FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
 import { useTheme } from '../../contexts/ThemeContext';
@@ -14,7 +15,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { isDark, toggleTheme } = useTheme();
   const { scrollY, scrollDirection } = useScrollAnimation();
-  const location = useLocation();
+  const router = useRouter();
 
   const navItems: NavItem[] = [
     { name: 'Home', path: '/' },
@@ -42,7 +43,7 @@ const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-3">
             <motion.img
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.5 }}
@@ -68,15 +69,15 @@ const Navbar: React.FC = () => {
             {navItems.map((item) => (
               <Link
                 key={item.name}
-                to={item.path}
+                href={item.path}
                 className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                  location.pathname === item.path
+                  router.pathname === item.path
                     ? 'text-primary-500'
                     : 'text-gray-700 dark:text-gray-300 hover:text-primary-500'
                 }`}
               >
                 {item.name}
-                {location.pathname === item.path && (
+                {router.pathname === item.path && (
                   <motion.div
                     layoutId="activeTab"
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-500"
@@ -126,10 +127,10 @@ const Navbar: React.FC = () => {
               {navItems.map((item) => (
                 <Link
                   key={item.name}
-                  to={item.path}
+                  href={item.path}
                   onClick={() => setIsOpen(false)}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                    location.pathname === item.path
+                    router.pathname === item.path
                       ? 'text-primary-500 bg-primary-50 dark:bg-primary-900/20'
                       : 'text-gray-700 dark:text-gray-300 hover:text-primary-500 hover:bg-gray-50 dark:hover:bg-dark-800'
                   }`}

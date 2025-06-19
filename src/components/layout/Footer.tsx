@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, HTMLMotionProps } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import {
   FaGithub,
   FaLinkedin,
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
     <footer className="bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-neural-network opacity-5"></div>
-      
+
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
@@ -106,10 +106,10 @@ const Footer: React.FC = () => {
               </h3>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Transforming ideas into intelligent solutions through cutting-edge machine learning 
+              Transforming ideas into intelligent solutions through cutting-edge machine learning
               and full-stack development expertise.
             </p>
-            
+
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-gray-400">
@@ -143,7 +143,7 @@ const Footer: React.FC = () => {
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.path}
+                    href={link.path}
                     className="text-gray-400 hover:text-primary-400 transition-colors duration-200 flex items-center space-x-2 group"
                   >
                     <motion.span
@@ -184,7 +184,7 @@ const Footer: React.FC = () => {
             {...({} as any)}
           >
             <h4 className="text-lg font-semibold mb-6 text-white">Connect With Me</h4>
-            
+
             {/* Social Icons */}
             <div className="flex flex-wrap gap-3 mb-6">
               {socialLinks.map((social) => (
@@ -246,12 +246,12 @@ const Footer: React.FC = () => {
               </motion.div>
               <span>and lots of ☕</span>
             </div>
-            
+
             <div className="flex items-center space-x-6 text-sm text-gray-400">
-              <Link to="/privacy" className="hover:text-primary-400 transition-colors">
+              <Link href="/privacy" className="hover:text-primary-400 transition-colors">
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="hover:text-primary-400 transition-colors">
+              <Link href="/terms" className="hover:text-primary-400 transition-colors">
                 Terms of Service
               </Link>
               <span>All rights reserved.</span>
