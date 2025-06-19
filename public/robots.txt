@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://anishpandey.netlify.app/sitemap.xml
+
+# Disallow admin paths (if any)
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /api/ 
