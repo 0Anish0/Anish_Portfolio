@@ -207,16 +207,16 @@ const Footer: React.FC = () => {
             <div className="bg-gradient-to-r from-primary-500/10 to-secondary-500/10 rounded-lg p-4 border border-white/10 backdrop-blur-sm">
               <h5 className="text-sm font-semibold mb-2 text-white">Stay Updated</h5>
               <p className="text-xs text-gray-400 mb-3">Get notified about new projects and insights</p>
-              <div className="flex space-x-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-3 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="flex-1 px-3 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 min-w-0"
                 />
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-md text-white text-sm font-medium hover:from-primary-600 hover:to-secondary-600 transition-all duration-200"
+                  className="px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-md text-white text-sm font-medium hover:from-primary-600 hover:to-secondary-600 transition-all duration-200 whitespace-nowrap shadow-lg hover:shadow-primary-500/25"
                   {...({} as HTMLMotionProps<"button">)}
                 >
                   Subscribe

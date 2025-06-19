@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence, HTMLMotionProps } from 'framer-motion';
-import { FaBars, FaTimes, FaSun, FaMoon, FaRobot } from 'react-icons/fa';
+import { FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
@@ -10,11 +10,7 @@ interface NavItem {
   path: string;
 }
 
-interface NavbarProps {
-  onChatToggle: () => void;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ onChatToggle }) => {
+const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { isDark, toggleTheme } = useTheme();
   const { scrollY, scrollDirection } = useScrollAnimation();
@@ -94,16 +90,6 @@ const Navbar: React.FC<NavbarProps> = ({ onChatToggle }) => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={onChatToggle}
-              className="p-2 rounded-lg bg-primary-500 text-white hover:bg-primary-600 transition-colors duration-200"
-              {...({} as HTMLMotionProps<"button">)}
-            >
-              <FaRobot className="w-5 h-5" />
-            </motion.button>
-
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}

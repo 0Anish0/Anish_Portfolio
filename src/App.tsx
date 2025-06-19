@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Toaster } from 'react-hot-toast';
+import { FaRobot, FaComments } from 'react-icons/fa';
 
 // Layout Components
 import Navbar from './components/layout/Navbar';
@@ -40,7 +41,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-white dark:bg-dark-900 text-gray-900 dark:text-white transition-colors duration-300">
-        <Navbar onChatToggle={() => setIsChatOpen(true)} />
+        <Navbar />
         
         <AnimatePresence mode="wait">
           <motion.main
@@ -62,6 +63,35 @@ const App: React.FC = () => {
         </AnimatePresence>
 
         <Footer />
+        
+        {/* Floating ChatBot Button */}
+        {!isChatOpen && (
+          <motion.button
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setIsChatOpen(true)}
+            className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-full shadow-2xl hover:shadow-primary-500/25 transition-all duration-300 flex items-center justify-center group"
+            title="Chat with AI Assistant"
+          >
+            <motion.div
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <FaRobot className="w-8 h-8" />
+            </motion.div>
+            
+            {/* Pulse Effect */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 animate-ping opacity-20"></div>
+            
+            {/* Tooltip */}
+            <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+              Chat with AI Assistant
+              <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gray-900"></div>
+            </div>
+          </motion.button>
+        )}
         
         <ChatBot 
           isOpen={isChatOpen} 
