@@ -5,33 +5,22 @@ import { Toaster } from 'react-hot-toast';
 
 // Layout Components
 import Navbar from './components/layout/Navbar';
-// import Footer from './components/layout/Footer';
-// import ChatBot from './components/chatbot/ChatBot';
+import Footer from './components/layout/Footer';
+import ChatBot from './components/chatbot/ChatBot';
 
 // Pages
 import Home from './pages/Home';
-// import About from './pages/About';
-// import Skills from './pages/Skills';
-// import Projects from './pages/Projects';
-// import Experience from './pages/Experience';
-// import Contact from './pages/Contact';
+import About from './pages/About';
+import Skills from './pages/Skills';
+import Projects from './pages/Projects';
+import Experience from './pages/Experience';
+import Contact from './pages/Contact';
 
 // Context
 import { ThemeProvider } from './contexts/ThemeContext';
 
 // Styles
 import './index.css';
-
-// Temporary simple components to avoid errors
-const Footer: React.FC = () => <footer>Footer</footer>;
-const ChatBot: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => (
-  isOpen ? <div onClick={onClose}>ChatBot (Click to close)</div> : null
-);
-const About: React.FC = () => <div>About Page</div>;
-const Skills: React.FC = () => <div>Skills Page</div>;
-const Projects: React.FC = () => <div>Projects Page</div>;
-const Experience: React.FC = () => <div>Experience Page</div>;
-const Contact: React.FC = () => <div>Contact Page</div>;
 
 const App: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
@@ -60,7 +49,6 @@ const App: React.FC = () => {
             exit="out"
             variants={pageVariants}
             transition={pageTransition}
-            {...({} as any)}
           >
             <Routes>
               <Route path="/" element={<Home />} />
@@ -96,4 +84,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App; 
+export default App;
