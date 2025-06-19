@@ -70,7 +70,7 @@ const Contact: React.FC = () => {
     {
       icon: FaMapMarkerAlt,
       title: 'Location',
-      value: 'Meerut, NCR, India',
+      value: 'Noida, Uttar Pradesh (NCR), India',
       link: '#',
       color: 'from-blue-500 to-cyan-500'
     },
@@ -400,7 +400,7 @@ const Contact: React.FC = () => {
                 <div className="text-center">
                   <FaMapMarkerAlt className="w-16 h-16 text-primary-500 mx-auto mb-4" />
                   <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
-                    Based in Meerut, NCR
+                    Based in Noida, Uttar Pradesh (NCR)
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">
                     Available for remote work worldwide

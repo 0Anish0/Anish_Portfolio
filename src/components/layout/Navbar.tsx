@@ -4,7 +4,6 @@ import { motion, AnimatePresence, HTMLMotionProps } from 'framer-motion';
 import { FaBars, FaTimes, FaSun, FaMoon, FaRobot } from 'react-icons/fa';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import logo from '../../assets/logo.png';
 
 interface NavItem {
   name: string;
@@ -51,9 +50,13 @@ const Navbar: React.FC<NavbarProps> = ({ onChatToggle }) => {
             <motion.img
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.5 }}
-              src={logo}
-              alt="Logo"
-              className="w-10 h-10"
+              src="/logo.png"
+              alt="Anish Kumar Pandey Logo"
+              className="w-10 h-10 object-contain"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop';
+              }}
               {...({} as any)}
             />
             <motion.span

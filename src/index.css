@@ -3,11 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Test to verify Tailwind is working */
-.test-tailwind {
-  @apply bg-blue-500 text-white p-4 rounded-lg;
-}
-
 :root {
   --toast-bg: theme('colors.white');
   --toast-color: theme('colors.gray.900');

@@ -87,11 +87,6 @@ const HeroSection: React.FC = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-dark-900 dark:via-dark-800 dark:to-dark-900">
-      {/* Tailwind Test Element - Remove this after confirming styles work */}
-      <div className="test-tailwind fixed top-4 right-4 z-50 text-sm">
-        ✅ Tailwind CSS Working!
-      </div>
-      
       <ParticleBackground />
       
       {/* Floating Icons */}
@@ -130,24 +125,26 @@ const HeroSection: React.FC = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="w-32 h-32 mx-auto mb-8 relative"
+            className="w-40 h-40 mx-auto mb-8 relative"
             {...({} as any)}
           >
-            <div className="w-full h-full rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 p-1">
-              <div className="w-full h-full rounded-full bg-white dark:bg-dark-800 flex items-center justify-center">
+            <div className="w-full h-full rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 p-1 shadow-2xl">
+              <div className="w-full h-full rounded-full bg-white dark:bg-dark-800 flex items-center justify-center overflow-hidden">
                 <img
                   src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=400"
-                  alt="Profile"
-                  className="w-28 h-28 rounded-full object-cover"
+                  alt="Anish Kumar Pandey - ML Engineer and Full Stack Developer"
+                  className="w-36 h-36 rounded-full object-cover object-center"
                 />
               </div>
             </div>
             <motion.div
-              className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white dark:border-dark-800"
+              className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white dark:border-dark-800 flex items-center justify-center"
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
               {...({} as any)}
-            />
+            >
+              <div className="w-2 h-2 bg-white rounded-full" />
+            </motion.div>
           </motion.div>
         </motion.div>
 
@@ -183,7 +180,7 @@ const HeroSection: React.FC = () => {
           Transforming ideas into intelligent solutions through{' '}
           <span className="text-primary-500 font-semibold">Machine Learning</span> and{' '}
           <span className="text-secondary-500 font-semibold">Full-Stack Development</span>.
-          Let's build the future together.
+          Based in Noida, India. Let's build the future together.
         </motion.p>
 
         <motion.div
@@ -254,4 +251,4 @@ const HeroSection: React.FC = () => {
   );
 };
 
-export default HeroSection; 
+export default HeroSection;

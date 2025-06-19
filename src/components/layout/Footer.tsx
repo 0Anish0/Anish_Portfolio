@@ -114,7 +114,7 @@ const Footer: React.FC = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-gray-400">
                 <FaMapMarkerAlt className="w-4 h-4 text-primary-400" />
-                <span>Meerut, NCR, India</span>
+                <span>Noida, Uttar Pradesh (NCR), India</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-400">
                 <FaEnvelope className="w-4 h-4 text-primary-400" />
@@ -236,7 +236,7 @@ const Footer: React.FC = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-2 text-gray-400">
-              <span>© 2024 ML Wizard. Made with</span>
+              <span>© 2024 Anish Kumar Pandey. Made with</span>
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1, repeat: Infinity }}
@@ -263,4 +263,4 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer; 
+export default Footer;

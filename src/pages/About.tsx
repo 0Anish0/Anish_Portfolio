@@ -79,7 +79,7 @@ const About: React.FC = () => {
             <div className="relative z-10">
               <img
                 src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="About Me"
+                alt="Anish Kumar Pandey - ML Engineer and Full Stack Developer"
                 className="w-full rounded-2xl shadow-2xl"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-500/20 to-secondary-500/20 rounded-2xl"></div>
@@ -121,7 +121,7 @@ const About: React.FC = () => {
               </p>
               
               <p>
-                My journey began with a fascination for how machines can learn and adapt, leading me 
+                Based in Noida, Uttar Pradesh (NCR), India, my journey began with a fascination for how machines can learn and adapt, leading me 
                 to explore the intersection of data science, machine learning, and web development. 
                 Today, I specialize in building end-to-end applications that leverage AI to solve 
                 real-world problems.
@@ -216,4 +216,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About; 
+export default About;
