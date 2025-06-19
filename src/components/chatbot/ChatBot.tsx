@@ -11,7 +11,6 @@ import {
   FaMicrophone,
   FaMicrophoneSlash 
 } from 'react-icons/fa';
-import { useTheme } from '../../contexts/ThemeContext';
 
 // Define interfaces for types
 interface Message {
@@ -31,10 +30,6 @@ interface QuickReply {
 interface BotResponse {
   text: string;
   suggestions?: string[];
-}
-
-interface ThemeContext {
-  isDark: boolean;
 }
 
 interface ChatBotProps {
