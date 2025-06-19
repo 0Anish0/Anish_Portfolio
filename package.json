@@ -1,6 +1,6 @@
 {
   "name": "ml-wizard-portfolio",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
@@ -35,13 +35,20 @@
     "web-vitals": "^2.1.4",
     "react-hot-toast": "^2.4.1",
     "react-syntax-highlighter": "^15.5.0",
-    "react-markdown": "^9.0.1"
+    "react-markdown": "^9.0.1",
+    "react-helmet": "^6.1.0",
+    "react-lazyload": "^3.2.0",
+    "react-spring": "^9.7.3",
+    "use-sound": "^4.0.1",
+    "react-use": "^17.4.0",
+    "react-error-boundary": "^4.0.11"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "analyze": "npm run build && npx bundle-analyzer build/static/js/*.js"
   },
   "eslintConfig": {
     "extends": [
