@@ -9,7 +9,6 @@ import {
   FaCode, 
   FaBrain, 
   FaRocket,
-  FaFilter,
   FaTimes
 } from 'react-icons/fa';
 import { IconType } from 'react-icons';

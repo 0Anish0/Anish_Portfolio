@@ -9,17 +9,14 @@ import {
   FaAws, 
   FaDocker, 
   FaGitAlt,
-  FaDatabase,
   FaBrain,
   FaCode,
   FaServer,
-  FaMobile,
   FaChartLine
 } from 'react-icons/fa';
 import { 
   SiTensorflow, 
   SiPytorch, 
-  SiJavascript, 
   SiTypescript, 
   SiMongodb, 
   SiPostgresql,

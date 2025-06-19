@@ -3,7 +3,6 @@ import { motion, HTMLMotionProps } from 'framer-motion';
 import { toast } from 'react-hot-toast';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
-import LoadingSpinner from '../components/ui/LoadingSpinner';
 import { 
   FaEnvelope, 
   FaPhone, 

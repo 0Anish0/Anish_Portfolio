@@ -57,7 +57,6 @@ const ChatBot: FC<ChatBotProps> = ({ isOpen, onClose }) => {
   const [isListening, setIsListening] = useState<boolean>(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  const { isDark } = useTheme() as ThemeContext;
 
   const quickReplies: QuickReply[] = [
     { text: "Tell me about your ML projects", icon: FaBrain },

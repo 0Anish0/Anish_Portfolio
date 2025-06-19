@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Toaster } from 'react-hot-toast';
-import { FaRobot, FaComments } from 'react-icons/fa';
+import { FaRobot } from 'react-icons/fa';
 
 // Layout Components
 import Navbar from './components/layout/Navbar';
