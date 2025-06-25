@@ -2,40 +2,15 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  trailingSlash: false,
   images: {
     domains: ['images.pexels.com', 'anishpandey.netlify.app'],
-    unoptimized: true,
+    unoptimized: false,
   },
-  // Handle static file serving
-  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
-  // Webpack configuration for handling assets and dependencies
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // Handle Three.js and other large dependencies
-    config.module.rules.push({
-      test: /\.(glsl|vs|fs|vert|frag)$/,
-      use: ['raw-loader', 'glslify-loader'],
-    });
-
-    return config;
-  },
-  // Environment variables
   env: {
-    CUSTOM_KEY: 'my-value',
+    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+    EMAIL_USER: process.env.EMAIL_USER,
+    EMAIL_PASS: process.env.EMAIL_PASS,
   },
-  // Experimental features
-  experimental: {
-    appDir: false, // Using pages directory
-  },
-  // Output configuration
-  output: 'standalone',
-  
-  // Redirects
-  async redirects() {
-    return [];
-  },
-  
-  // Headers
   async headers() {
     return [
       {
@@ -59,4 +34,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig; 
+module.exports = nextConfig;
