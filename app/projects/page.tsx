@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Projects from '@/components/pages/Projects';
+import Projects from '../../components/pages/Projects';
 
 export const metadata: Metadata = {
   title: 'Projects - Anish Kumar Pandey | Portfolio & Work',

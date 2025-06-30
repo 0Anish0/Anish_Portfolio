@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '../../contexts/ThemeContext';
 import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar: React.FC = () => {

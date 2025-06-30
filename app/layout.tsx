@@ -2,11 +2,11 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono, Poppins } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
-import { ThemeProvider } from '@/contexts/ThemeContext';
-import { ChatProvider } from '@/contexts/ChatContext';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
-import ChatBot from '@/components/chatbot/ChatBot';
+import { ThemeProvider } from '../contexts/ThemeContext';
+import { ChatProvider } from '../contexts/ChatContext';
+import Navbar from '../components/layout/Navbar';
+import Footer from '../components/layout/Footer';
+import ChatBot from '../components/chatbot/ChatBot';
 import './globals.css';
 
 const inter = Inter({ 
@@ -33,12 +33,10 @@ export const metadata: Metadata = {
   creator: 'Anish Kumar Pandey',
   publisher: 'Anish Kumar Pandey',
   robots: 'index, follow',
-  canonical: 'https://anishpandey.netlify.app',
   openGraph: {
     title: 'Anish Kumar Pandey - ML Engineer & Full Stack Developer',
     description: 'Expert ML Engineer and Full Stack Developer from Noida, India. Specializing in Machine Learning, AI, Python, React, and modern web technologies.',
     type: 'website',
-    url: 'https://anishpandey.netlify.app',
     siteName: 'Anish Kumar Pandey Portfolio',
     locale: 'en_US',
     images: [
@@ -82,8 +80,7 @@ export default function RootLayout({
               "name": "Anish Kumar Pandey",
               "jobTitle": "ML Engineer & Full Stack Developer",
               "description": "Expert ML Engineer and Full Stack Developer specializing in Machine Learning, AI, Python, React, and modern web technologies.",
-              "url": "https://anishpandey.netlify.app",
-              "image": "https://anishpandey.netlify.app/logo.png",
+              "image": "/logo.png",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Noida",

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Experience from '@/components/pages/Experience';
+import Experience from '../../components/pages/Experience';
 
 export const metadata: Metadata = {
   title: 'Experience - Anish Kumar Pandey | Professional Background',

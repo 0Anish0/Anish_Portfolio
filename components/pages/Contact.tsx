@@ -3,8 +3,8 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { toast } from 'react-hot-toast';
-import Card from '@/components/ui/Card';
-import Button from '@/components/ui/Button';
+import Card from '../ui/Card';
+import Button from '../ui/Button';
 import { 
   FaEnvelope, 
   FaPhone, 

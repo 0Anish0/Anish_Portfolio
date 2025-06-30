@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import About from '@/components/pages/About';
+import About from '../../components/pages/About';
 
 export const metadata: Metadata = {
   title: 'About - Anish Kumar Pandey | ML Engineer & Developer',

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Contact from '@/components/pages/Contact';
+import Contact from '../../components/pages/Contact';
 
 export const metadata: Metadata = {
   title: 'Contact - Anish Kumar Pandey | Get In Touch',
